@@ -1,0 +1,65 @@
+$light-gray: #404040;
+$gray: #383838;
+$dark-gray: #2f2f2f;
+
+$dark-red: #a10202;
+$red: #d40203;
+
+$dark-yellow: #bd910e;
+$yellow: #fec009;
+
+$dark-green: #057b37;
+$green: #00c955;
+
+.traffic-light {
+    background:
+        // Red light - circle
+        radial-gradient(100% 100%, $red 42%, $dark-red 50%, transparent 51%) 15.5em 5.75em / 9em 9em,
+        // Red light - circle shadow
+        radial-gradient(100% 100% at 50% 100%, $gray 50%, transparent 51%) 15.25em  0.5em / 9.5em 9.5em,
+        // Red light - square
+        radial-gradient(195% 195% at 100% 100%, $light-gray 50%, transparent 51%) 15em 5em / 1em 1em,
+        radial-gradient(195% 195% at 0% 100%, $light-gray 50%, transparent 51%) 24em 5em / 1em 1em,
+        radial-gradient(195% 195% at 0% 0%, $light-gray 50%, transparent 51%) 24em 14em / 1em 1em,
+        radial-gradient(195% 195% at 100% 0%, $light-gray 50%, transparent 51%) 15em 14em / 1em 1em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 16em 5em / 8em 10em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 15em 6em / 10em 8em,
+        // Red light - left ear
+        
+        // Separator
+        linear-gradient($gray 50%, $gray 50%) 16em 15em / 8em 0.25em,
+        // Yellow light - circle
+        radial-gradient(100% 100%, $yellow 42%, $dark-yellow 50%, transparent 51%) 15.5em 16em / 9em 9em,
+        // Yellow light - circle shadow
+        radial-gradient(100% 100% at 50% 100%, $gray 50%, transparent 51%) 15.25em  10.75em / 9.5em 9.5em,
+        // Yellow light - square
+        radial-gradient(195% 195% at 100% 100%, $light-gray 50%, transparent 51%) 15em 15.25em / 1em 1em,
+        radial-gradient(195% 195% at 0% 100%, $light-gray 50%, transparent 51%) 24em 15.25em / 1em 1em,
+        radial-gradient(195% 195% at 0% 0%, $light-gray 50%, transparent 51%) 24em 24.25em / 1em 1em,
+        radial-gradient(195% 195% at 100% 0%, $light-gray 50%, transparent 51%) 15em 24.25em / 1em 1em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 16em 15.25em / 8em 10em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 15em 16.25em / 10em 8em,
+        // Separator
+        linear-gradient($gray 50%, $gray 50%) 16em 25.25em / 8em 0.25em,
+        // Green light - circle
+        radial-gradient(100% 100%, $green 42%, $dark-green 50%, transparent 51%) 15.5em 26.25em / 9em 9em,
+        // Green light - circle shadow
+        radial-gradient(100% 100% at 50% 100%, $gray 50%, transparent 51%) 15.25em  21em / 9.5em 9.5em,
+        // Green light - square
+        radial-gradient(195% 195% at 100% 100%, $light-gray 50%, transparent 51%) 15em 25.5em / 1em 1em,
+        radial-gradient(195% 195% at 0% 100%, $light-gray 50%, transparent 51%) 24em 25.5em / 1em 1em,
+        radial-gradient(195% 195% at 0% 0%, $light-gray 50%, transparent 51%) 24em 34.5em / 1em 1em,
+        radial-gradient(195% 195% at 100% 0%, $light-gray 50%, transparent 51%) 15em 34.5em / 1em 1em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 16em 25.5em / 8em 10em,
+        linear-gradient($light-gray 50%, $light-gray 50%) 15em 26.5em / 10em 8em,
+        // Traffic light head
+        radial-gradient(100% 122% at 50% 113%, $dark-gray 50%, transparent 51%) 17em 2em / 6em 3em,
+        // Base
+        radial-gradient(100% 100% at 50% 100%, $dark-gray 50%, transparent 51%) 15em 46em / 10em 15em,
+        linear-gradient($dark-gray 50%, $dark-gray 50%) 18.3em 35em / 3.33em 20em
+    ;
+    background-repeat: no-repeat;
+    outline: 1px solid #aaa;
+    width: 40em;
+    height: 64em;
+}
