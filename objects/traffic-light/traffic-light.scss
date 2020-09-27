@@ -76,12 +76,9 @@ $green: #00c955;
         linear-gradient($dark-gray 50%, $dark-gray 50%) 14.6em 27.5em / 1em 3em,
         // Traffic light head
         radial-gradient(100% 122% at 50% 113%, $dark-gray 50%, transparent 51%) 6.6em -1.5em / 6em 3em,
-        // Base
-        radial-gradient(100% 100% at 50% 100%, $dark-gray 50%, transparent 51%) 4.6em 42.5em / 10em 15em,
-        linear-gradient($dark-gray 50%, $dark-gray 50%) 7.9em 31.5em / 3.33em 20em
     ;
     background-repeat: no-repeat;
     width: 19.2em;
-    height: 57.5em;
+    height: 32em;
     display: inline-block;
 }
