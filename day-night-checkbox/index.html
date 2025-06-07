@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day/Night Checkbox</title>
+
+    <style>
+      :root {
+        --white: #FFF;
+
+        --day-shadow: #444;
+        --blue-sky-1: #6298D0;
+        --blue-sky-2: #4F8EC8;
+        --blue-sky-3: #3E80C1;
+        --blue-sky-4: #2472B9;
+        --day-shadow-cloud: #9EC3E8;
+
+        --sun: #FFBC1A;
+        --sun-shadow-dark: #A68740;
+        --sun-shadow-light: #FFF;
+
+        --night-shadow: #191970;
+        --night-sky-1: #4F535D;
+        --night-sky-2: #404350;
+        --night-sky-3: #29313A;
+        --night-sky-4: #1B1E2C;
+        --night-shadow-cloud: #ADB3BD;
+
+        --moon: #C5C8D3;
+        --moon-shadow-dark: #444;
+        --moon-shadow-light: #FFF;
+
+        --moon-crater: #959DA9;
+        --moon-crater-shadow: #858585;
+      }
+
+      body {
+        background-color: #d1d9e8;
+      }
+
+      input[type='checkbox'] {
+        /* Hide native checkbox */
+
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        appearance: none;
+        /* For iOS < 15 to remove gradient background */
+        background-color: #fff;
+        /* Not removed via appearance */
+        margin: 0;
+
+        /* Other styles */
+        position: relative;
+        background-color: transparent;
+        outline: none;
+      }
+
+      input[type='checkbox']::before {
+        content: '';
+        display: block;
+        width: 5em;
+        height: 2em;
+        background:
+          /* White clouds right to left */ 
+          radial-gradient(1.5em 1.5em at 100% 45%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 86% 85%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 73% 85%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 61% 110%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 48% 95%, var(--white) 49%, transparent 50%),
+          radial-gradient(2em 2em at 26% 125%, var(--white) 49%, transparent 50%),
+
+          /* Shadow clouds right to left */ 
+          radial-gradient(1.5em 1.5em at 95% 30%, var(--day-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 80% 55%, var(--day-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 65% 60%, var(--day-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 55% 80%, var(--day-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 45% 75%, var(--day-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(2em 2em at 25% 110%, var(--day-shadow-cloud) 49%, transparent 50%),
+
+          /* Blue sky */
+          radial-gradient(
+            circle at 0%,
+            var(--blue-sky-1) 40%,
+            var(--blue-sky-1) 49.9%,
+            var(--blue-sky-2) 50%,
+            var(--blue-sky-2) 61.9%,
+            var(--blue-sky-3) 62%,
+            var(--blue-sky-3) 73.9%,
+            var(--blue-sky-4) 74%
+          );
+        border-radius: 1em;
+        box-shadow: inset 0 0 0.3em 0 var(--day-shadow);
+      }
+
+      input[type='checkbox']::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.2em;
+        left: 0.2em;
+        width: 1.6em;
+        height: 1.6em;
+        background-color: var(--sun);
+        border-radius: 100%;
+        box-shadow: 
+          inset 0 -0.06em 0.1em var(--sun-shadow-dark),
+          inset 0.025em 0.025em 0em var(--sun-shadow-light);
+      }
+
+      input[type='checkbox']:checked::before {
+        content: '';
+        display: block;
+        width: 5em;
+        height: 2em;
+        background:
+          /* White clouds right to left */ 
+          /* radial-gradient(1.5em 1.5em at 100% 45%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 86% 85%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 75% 95%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 61% 105%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 48% 95%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 30% 105%, var(--white) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 15% 115%, var(--white) 49%, transparent 50%), */
+
+          /* Shadow clouds right to left */ 
+          /* radial-gradient(1.5em 1.5em at 95% 30%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 80% 55%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 70% 67%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 56% 80%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 45% 75%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 30% 90%, var(--night-shadow-cloud) 49%, transparent 50%),
+          radial-gradient(1.25em 1.25em at 15% 100%, var(--night-shadow-cloud) 49%, transparent 50%), */
+
+          /* Stars */
+          radial-gradient(0.05em 0.05em at 12% 75%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.05em 0.05em at 15% 60%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.05em 0.05em at 23% 78%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.15em 0.05em at 15% 25%, var(--white) 48%, transparent 50%),
+          radial-gradient(0.05em 0.15em at 15% 25%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.15em 0.05em at 23% 35%, var(--white) 48%, transparent 50%),
+          radial-gradient(0.05em 0.15em at 23% 35%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.19em 0.08em at 23% 15%, var(--white) 48%, transparent 50%),
+          radial-gradient(0.08em 0.19em at 23% 15%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.05em 0.05em at 40% 45%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.05em 0.05em at 45% 20%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.15em 0.05em at 47% 75%, var(--white) 48%, transparent 50%),
+          radial-gradient(0.05em 0.15em at 47% 75%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.05em 0.05em at 55% 58%, var(--white) 48%, transparent 50%),
+
+          radial-gradient(0.21em 0.1em at 60% 30%, var(--white) 48%, transparent 50%),
+          radial-gradient(0.1em 0.21em at 60% 30%, var(--white) 48%, transparent 50%),
+
+
+          /* Night sky */
+          radial-gradient(
+            circle at 100%,
+            var(--night-sky-1) 40%,
+            var(--night-sky-1) 49.9%,
+            var(--night-sky-2) 50%,
+            var(--night-sky-2) 61.9%,
+            var(--night-sky-3) 62%,
+            var(--night-sky-3) 73.9%,
+            var(--night-sky-4) 74%
+          );
+        border-radius: 1em;
+        box-shadow: inset 0 0 0.3em 0 var(--night-shadow);
+        background-repeat: no-repeat;
+      }
+
+      input[type='checkbox']:checked::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.2em;
+        right: 0.2em;
+        left: auto;
+        width: 1.6em;
+        height: 1.6em;
+        background: 
+          /* Craters top to bottom */
+          radial-gradient(0.4em 0.4em at 55% 25%, var(--moon-crater) 30%, var(--moon-crater-shadow) 47%, transparent 50%),
+          radial-gradient(0.6em 0.6em at 30% 55%, var(--moon-crater) 30%, var(--moon-crater-shadow) 47%, transparent 50%),
+          radial-gradient(0.4em 0.4em at 70% 65%, var(--moon-crater) 30%, var(--moon-crater-shadow) 47%, transparent 50%),
+          /* Moon color */
+          linear-gradient(90deg, var(--moon) 0%, var(--moon) 100%);
+        border-radius: 100%;
+        box-shadow: 
+          inset 0 -0.06em 0.1em var(--moon-shadow-dark),
+          inset 0.025em 0.025em 0em var(--moon-shadow-light);
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" checked />
+  </body>
+</html>
